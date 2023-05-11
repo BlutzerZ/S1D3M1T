@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha512-YEGY4Nz4N4iFypxRvKdX62y76QYZyG1tW/Bf3qK3tZnTcLzB3fIf1q0FnXztA3PpJmqG03/eRiJhVcYzZ2lbUA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="./cart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <title>Keranjang</title>
+    <script src="./cart.js"></script>
+</head>
+<body>
+    <div class="container mx-auto p-5">
+        <div class="md:flex md:flex-row md:justify-between text-center text-sm sm:text-base">
+          <div class="flex flex-row justify-center mt-3">
+            <a href="#" class="bg-gradient-to-r from-purple-400 to-red-400 w-10 h-10 rounded-lg"></a>
+            <a href="#"class="text-3xl text-gray-600 ml-2">Profile</h1>
+          </div>
+          <div class="mt-2">
+            <a href="./index.html" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Home</a>
+            <a href="#" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Shop</a>
+            <a href="#" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Contact</a>
+            
+          </div>
+        </div>
+
+        <div class="container my-5">
+          <h1 class="text-center mb-5">Cart Produk</h1>
+          <div class="row">
+            <div class="col-md-8">
+              <ul class="list-group">
+                <li id="produk-list"class="list-group-item d-flex justify-content-between align-items-center">
+                  <div class="d-flex flex-column">
+                    <h5>Produk 1</h5>
+                    <small>Deskripsi produk 1</small>
+                    <p class="text-muted">Rp. 100.000,-</p>
+                  </div>
+                  <div>
+                    <button type="button" class="btn btn-sm btn-warning mr-2" data-toggle="modal" data-target="#editProdukModal">Edit</button>
+                    <button type="button" class="btn btn-sm btn-danger" onclick="hapusProduk('produk-cart','produk-cart1')">Hapus</button>
+                  </div>
+                </li>
+                <li id="produk-cart" class="list-group-item d-flex justify-content-between align-items-center">
+                  <div class="d-flex flex-column">
+                    <h5>Produk 2</h5>
+                    <small>Deskripsi produk 2</small>
+                    <p class="text-muted">Rp. 200.000,-</p>
+                  </div>
+                  <div>
+                    <button type="button" class="btn btn-sm btn-warning mr-2">Edit</button>
+                    <button type="button" id="hapus"class="btn btn-sm btn-danger" onclick="hapusProduk('produk1')">Hapus</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Cart</h5>
+                  <ul class="list-group list-group-flush">
+                    <li id="produk-cart1" class="list-group-item">Produk 1 - Rp. 100.000,-</li>
+                    <li class="list-group-item">Produk 2 - Rp. 200.000,-</li>
+                    <li class="list-group-item font-weight-bold">Total: Rp. 300.000,-</li>
+                  </ul>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary btn-block">Checkout</button>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+
+    <!--PopUp-->
+  <div class="modal fade" id="editProdukModal" tabindex="-1" role="dialog" aria-labelledby="editProdukModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editProdukModalLabel">Edit Produk</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <form>
+            <div class="form-group">
+            <label for="namaProduk">Nama Produk</label>
+            <input type="text" class="form-control" id="namaProduk" value="Produk 1">
+            </div>
+            <div class="form-group">
+            <label for="deskripsiProduk">Deskripsi Produk</label>
+            <textarea class="form-control" id="deskripsiProduk" rows="3">Deskripsi produk 1</textarea>
+            </div>
+            <div class="form-group">
+            <label for="hargaProduk">Harga Produk</label>
+            <input type="text" class="form-control" id="hargaProduk" value="Rp. 100.000,-">
+            </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <button type="button" class="btn btn-primary">Simpan</button>
+            </div>
+            </div>
+            </div>
+           
+  
+
+    </div>
+
+</body>
+</html>
