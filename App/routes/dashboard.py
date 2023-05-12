@@ -129,8 +129,6 @@ def inputer_product_size():
 
     return "ok"
 
-
-
 @app.route("/inputer/test")
 def inputer_product_test():
     products = ProductModels.query.all()

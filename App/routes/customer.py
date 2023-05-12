@@ -1,5 +1,5 @@
 from app import app, db
-from models import Transaction as OrderModels, TransactionItem as OrderItemModels
+from models import Product as ProductModels, ProductColor as ProductColorModels, ProductSize as ProductSizeModels, Transaction as OrderModels, TransactionItem as OrderItemModels
 from flask import render_template, request, session, redirect, abort, url_for, render_template
 import time, os, random
 from pytz import timezone
@@ -16,7 +16,9 @@ def before_request():
 
 @app.route("/")
 def show_all_product():
-    return render_template('product.html')
+    products = ProductModels.query.all()
+
+    return render_template('product.html', products=products)
 
 # CART ROUTES ====================================
 
@@ -67,7 +69,6 @@ def checkout():
     if request.method == "POST":
         total = int(request.form['ftotal'])
         return "rerere"
-        # return render_template('checkout.html', total=total)
     else:
         return "<p>Nothing here</p>"
 

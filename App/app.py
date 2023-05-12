@@ -7,6 +7,11 @@ import os
 print(os.getenv('MYSQL_HOST'))
 
 app = Flask(__name__)
+def _enumerate(iterable):
+    return enumerate(iterable)
+
+app.jinja_env.globals.update(_enumerate=_enumerate)
+
 app.config.from_object(Config)
 from flask_migrate import Migrate
 from config import Config

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Tailwind CSS</title>
+  <link href="css/dash.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/dash.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="text/javascript" src="js/show.js"></script>
+  <script type="text/javascript" src="{{ url_for('static',filename='js/show.js') }}"></script>
+</head>
+<body>
+    
+  <div class="container mx-auto p-5">
+    <div class="container mx-auto p-5">
+      <div class="md:flex md:flex-row md:justify-between text-center text-sm sm:text-base">
+        <div class="flex flex-row justify-center">
+          <img src="./assets/logos/logo2.jpeg" class="w-20 h-20 rounded-lg">
+        </div>
+        <div class="mt-2">
+          <a href="./dash.html" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Home</a>
+          <a href="#koleksiProduks" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Shop</a>
+          <a href="./contact.html" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Contact</a>
+          <a href="./keranjang.html" class="bg-gray-200 text-gray-50 p-3 px-3 sm:px-5 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </a>
+        </div>
+      </div><!-- Main Navigation -->
+
+    <div class="container-md">
+    <div class="md:flex md:flex-row mt-20">
+      <div class="md:w-2/5 flex flex-col justify-center items-center">
+        <h2 class="font-serif text-5xl text-gray-600 mb-4 text-center md:self-start md:text-left">Welcome in here</h2>
+        <p class="uppercase text-gray-600 tracking-wide text-center md:self-start md:text-left">Brand Kami Tidak Pernah Gagal</p>
+        <p class="uppercase text-gray-600 tracking-wide text-center md:self-start md:text-left">Produk Kami Selalu Fashionable</p>
+        <a href="#" class="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-4 px-8 text-gray-50 uppercase text-xl md:self-start my-5">Shop Now</a>
+      </div>
+        <div class="md:w-3/5">
+          <div id="myCarousel" class="carousel slide " data-bs-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+              <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+              <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+            </ol>
+          
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="carousel-item text-center active">
+                <img src="./assets/carousel/OnPaste.20230510-202737.png" alt="Slide 1">
+                <div class="carousel-caption">
+                  <h3>Slide 1</h3>
+                  <p>Deskripsi slide 1</p>
+                </div>
+              </div>
+          
+              <div class="carousel-item">
+                <img src="./assets/carousel/OnPaste.20230510-203341.png" alt="Slide 2">
+                <div class="carousel-caption">
+                  <h3>Slide 2</h3>
+                  <p>Deskripsi slide 2</p>
+                </div>
+              </div>
+          
+              <div class="carousel-item">
+                <img src="./assets/carousel/OnPaste.20230510-204438.png" alt="Slide 3">
+                <div class="carousel-caption">
+                  <h3>Slide 3</h3>
+                  <p>Deskripsi slide 3</p>
+                </div>
+              </div>
+            </div>
+          
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev pr-2" href="#myCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+          
+          
+          
+          
+          
+        </div> 
+        </div>
+      </div>
+      <!-- Hero sectioin -->
+
+    <div class="my-20">
+      <div class="flex flex-row justify-between my-5">
+        <h2 class="text-3xl">Product Collection</h2>
+        <button id="kemejaBut" class="border border-gray-500 py-2 px-4 rounded-full flex flex-row items-center text-lg hover:bg-gray-300 hover:text-purple-700" onclick="kemejaCall('kemejaOut')">
+            Kemeja
+        </button>
+          <button id="blouseBut"  class="border border-gray-500 py-2 px-4 rounded-full flex flex-row items-center text-lg hover:bg-gray-300 hover:text-purple-700" onclick="kemejaCall('blouseOut')">
+            Blouse
+          </button>
+          <button id="dressBut" href="#" class="border border-gray-500 py-2 px-4 rounded-full flex flex-row items-center text-lg hover:bg-gray-300 hover:text-purple-700" onclick="kemejaCall('dressOut')">
+            Dress
+          </button>
+          <button id="oneSetBut" href="#" class="border border-gray-500 py-2 px-4 rounded-full flex flex-row items-center text-lg hover:bg-gray-300 hover:text-purple-700" onclick="kemejaCall('oneSetOut')">
+            One Set
+          </button>
+          <button id="celanaBut" href="#" class="border border-gray-500 py-2 px-4 rounded-full flex flex-row items-center text-lg hover:bg-gray-300 hover:text-purple-700" onclick="kemejaCall('celanaOut')">
+            Celana
+          </button>
+      </div>
+    <div class="grid grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10" id="koleksiProduks">
+      {% for p in products %}
+      
+        <div data-my-data="{{ p.id }}" class="shadow-lg rounded-lg" id="{{ p.category }}Out">
+          <a href="#">
+            <img src="{{ url_for('static',filename='assets/') }}" class="rounded-tl-lg rounded-tr-lg"  />
+          </a>
+          <div class="p-5">
+            <h3><a href="#">{{ p.title }}</a></h3>
+            <div class="flex flex-row my-3">
+              
+              <button id="prev-color" class="rounded-full py-1 px-2 text-white bg-gray-700 mr-2" onclick="prevBut('{{ p.id }}')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M11.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 111.414 1.414L6.414 9H18a1 1 0 110 2H6.414l5.293 5.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              {% set firstIndex = 0 %}
+              {% for idx, color in _enumerate(p.colors) %}
+                {% if idx == 0 %}
+                  <div class="color-group-{{ p.id }} flex flex-row items-center">
+                {% elif idx % 5 == 0 %} 
+                  <div class="color-group-{{ p.id }} hidden flex flex-row items-center">
+                {% endif %}
+
+                  <div title={{color.productColorName}} class="color-circle rounded-full h-5 w-5 shadow-md" style="background-color: {{ color.productColorHex }};"></div>
+                
+                {% if (idx+1) % 5 == 0 or idx+1 == p.colors|length%}
+                  </div>
+                {% endif %}      
+              {% endfor %}
+              <button id="next-color" class="rounded-full py-1 px-2 text-white bg-gray-700 ml-2" onclick="nextBut('{{ p.id }}')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M8.293 16.707a1 1 0 001.414 0l6-6a1 1 0 000-1.414l-6-6a1 1 0 10-1.414 1.414L13.586 9H2a1 1 0 000 2h11.586l-5.293 5.293a1 1 0 000 1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+            
+            <div class="flex flex-row my-3">
+              {% for size in p.sizes %}
+                <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#">{{ size.productSize }}</a>
+              {% endfor %}
+            </div>
+            
+            
+            <div class="flex flex-col sm:flex-row gap-2 justify-between">
+              <a class="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                Add to cart
+              </a>
+              <button type="button" id="btn-showbutton" class="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center" onclick="openModal('{{ p.id }}')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+                View Details
+              </buttonutton>
+
+              
+
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+     
+      </div>
+    </div> <!-- Men's Collection Section -->
+
+
+    <!--PopUp-->
+    
+    <div class="border-t-2 border-gray-300 flex flex-col md:flex-row md:justify-between text-center py-5 text-sm">
+      <div class="mb-4">
+        <a href="#" class="mx-2.5">About</a>
+        <a href="#" class="mx-2.5">Privacy Policy</a>
+        <a href="#" class="mx-2.5">Terms of Services</a>
+      </div>
+      <p>&copy; Copyright Reserved 2021</p>
+    </div><!-- Footer Section -->
+
+    {% for p in products %}
+      <!--PopUp-->
+      <div class="modal-{{ p.id }} fixed w-full h-full top-0 left-0 flex items-center justify-center hidden">
+      <!-- Overlay -->
+      <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+    
+      <!-- Isi modal -->
+      <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+        <!-- Tombol close -->
+        <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50" onclick="closeModal('{{ p.id }}')">
+          <svg
+            class="fill-current text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+          >
+            <path
+              d="M18 1.5L16.5 0 9 7.5 1.5 0 0 1.5 7.5 9 0 16.5 1.5 18 9 10.5 16.5 18 18 16.5 10.5 9z"
+            />
+          </svg>
+          <span class="text-sm" >(Esc)</span>
+        </div>
+
+        <!-- Konten modal -->
+        <div class="modal-content py-4 text-left px-6 overflow-y-auto" style="max-height: 90vh;">
+          <h1 class="text-2xl font-bold mb-2">Produk Detail</h1>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold " for="judul">
+              {{ p.title }}
+            </label>
+            <h1 id="pop-nama-produk"></h1>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold " for="images-mod">
+              Gambar
+            </label>
+            <img id="dataImg" class="rounded-tl-lg" style="width: 50%; height: 50%;">
+
+            
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold " for="size-contain">
+              Size
+            </label>
+            <div class="flex flex-row my-3">
+              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#" onclick="updatePrice('XL')">XL</button>
+              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#" onclick="updatePrice('XXL')">XXL</button>
+              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#" onclick="updatePrice('L')">L</button>
+              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#" onclick="updatePrice('M')">M</button>
+              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#" onclick="updatePrice('S')">S</button>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold " for="color-contain">
+              Choose Color
+            </label>
+            <div class="flex flex-row my-3">
+              <div id="hitam" class="bg-black rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer" onclick="updateColor('#hitam')"></div>
+              <div id="blue" class="bg-blue-800 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer" onclick="updateColor('#blue')"></div>
+              <div id="putih" class="bg-white rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
+              <div id="merah"class="bg-red-800 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
+              <div id="hijau" class="bg-green-700 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
+              <div id="abuAbu" class="bg-gray-400 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
+              <div id="lemon" class="bg-yellow-500 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
+              <div id="hitamSemu" class="bg-black-800 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
+              <div id="cyan" class="bg-cyan-300 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
+              <div id="amber" class="bg-amber-950 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
+              <div id="fuschia" class="bg-pink-500 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
+              <div id="matcha" class="bg-emerald-500 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
+              
+            
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold " for="deskripsi-mod">
+              Description
+            </label>
+            ini desc
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold " for="jumlah-mod">
+              Jumlah Barang
+            </label>
+            <input 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="jumlah-barang"
+            type="number"
+            placeholder="masukkan jumlah barang"
+            >
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold " for="jumlah-mod">
+              Harga Produk
+            </label>
+            <div id="harga-mod"></div>
+          </div>
+          <div class="flex items-center justify-end pt-4">
+            <button
+            class="modal-close px-4 bg-gray-500 p-3 rounded-lg text-white hover:bg-gray-400"
+            onclick="submitModal()"
+            >
+            Beli
+            </button>
+          </div>
+        
+        </div>
+      </div>
+      </div>
+    {% endfor %}
+
+
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="openModalx()">
+    Buka Popup
+  </button>
+  <script>
+    function openModalx() {
+    document.getElementById('modal1').classList.toggle('hidden');
+  }
+
+  var colorGroups = document.querySelectorAll('.color-group');
+const btnPrev = document.querySelector('#btn-prev');
+const btnNext = document.querySelector('#btn-next');
+
+var currentGroup = {};
+
+var myDataElements = document.querySelectorAll('[data-my-data]');
+console.log(myDataElements.length)
+        
+// Mengakses nilai data dari setiap elemen dalam array
+var allIDs = []
+for(i = 0; i < myDataElements.length; i++){
+  id = myDataElements[i].getAttribute('data-my-data');
+  allIDs.push(id);
+    }
+
+for(i = 0; i < allIDs.length; i++){
+  var id = allIDs[i];
+  currentGroup[id] = 0;
+}
+
+
+function getcg(){
+  console.log(currentGroup);
+}
+
+function prevBut(x) {
+  colorGroups = document.querySelectorAll('.color-group-'+x);
+  currentGroupX = currentGroup[x];
+  colorGroups[currentGroupX].classList.add('hidden');
+  currentGroup[x] = (currentGroup[x] === 0) ? colorGroups.length - 1 : currentGroup[x] - 1;
+  currentGroupX = currentGroup[x];
+  colorGroups[currentGroupX].classList.remove('hidden');
+}
+
+function nextBut(x) {
+  console.log(currentGroup[x])
+  console.log('.color-group-'+x)
+  colorGroups = document.querySelectorAll('.color-group-'+x);
+  currentGroupX = currentGroup[x];
+  colorGroups[currentGroupX].classList.add('hidden');
+  currentGroup[x] = (currentGroup[x] === colorGroups.length - 1) ? 0 : currentGroup[x] + 1;
+  currentGroupX = currentGroup[x];
+  colorGroups[currentGroupX].classList.remove('hidden');
+}
+
+const colorItems = document.querySelectorAll('.color-item');
+
+colorItems.forEach(item => {
+  item.addEventListener('click', () => {
+    // hapus border di semua item
+    colorItems.forEach(item => {
+      item.style.border = 'none';
+    });
+    
+    // tambahkan border ke item yang dipilih
+    item.style.border = '2px solid black';
+  });
+});
+
+function selectSize(event) {
+  // hapus kelas 'border-blue-500' dari elemen lain
+  const selectedSize = event.target;
+  const allSizes = document.querySelectorAll('.flex-row a');
+  allSizes.forEach(size => {
+    size.classList.remove('border-blue-500');
+  });
+  // tambahkan kelas 'border-blue-500' pada elemen yang dipilih
+  selectedSize.classList.add('border-blue-500');
+}
+
+const allSizes = document.querySelectorAll('.flex-row a');
+allSizes.forEach(size => {
+  size.addEventListener('click', selectSize);
+});
+  </script>
+</body>
+</html>

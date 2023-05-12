@@ -11,11 +11,8 @@
 }
 
 
-function openModal(imgSrc, judulProduk) {
-  document.querySelector('#dataImg').src = imgSrc;
-  document.querySelector('#pop-nama-produk').textContent = judulProduk;
-  document.querySelector('.modal').classList.remove('hidden');
-  
+function openModal(modalID) {
+  document.querySelector('.modal-'+modalID).classList.remove('hidden');
 }
 
 var buttons = document.querySelectorAll('#btn-show');
@@ -29,8 +26,8 @@ buttons.forEach(function(button) {
 });
 
 
-function closeModal() {
-  document.querySelector('.modal').classList.add('hidden');
+function closeModal(modalID) {
+  document.querySelector('.modal-'+modalID).classList.add('hidden');
 }
 
 function submitModal() {

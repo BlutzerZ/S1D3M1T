@@ -6,6 +6,7 @@ class Product(db.Model):
     image = db.Column(db.String(200))
     title = db.Column(db.String(100))
     desc = db.Column(db.String(300))
+    category = db.Column(db.String(100))
     sizes = db.relationship('ProductSize', backref='transaction')
     colors = db.relationship('ProductColor', backref='transaction')
 
