@@ -1,5 +1,5 @@
 from app import app, db
-from models import Transaction as OrderModels, TransactionItem as OrderItemModels
+from models import Product as ProductModels, ProductColor as ProductColorModels, ProductSize as ProductSizeModels, Transaction as OrderModels, TransactionItem as OrderItemModels
 from flask import render_template, request, session, redirect, abort, url_for, render_template
 import time, os, random
 from pytz import timezone
@@ -73,6 +73,73 @@ def dashboard_transaction():
 
     return render_template("dashboardtransaction.html", transactions=transactions)
 
+
+@app.route("/inputer/product", methods=["POST"])
+def inputer_product():
+    fimage = request.form['fimage']
+
+    productName = request.form['fproductname']
+    productDesc = request.form['fproductdesc']
+    
+    db_item = ProductModels(
+        title=productName,
+        image=fimage,
+        desc=productDesc,
+    )
+    db.session.add(db_item)
+    db.session.commit()
+    db.session.refresh(db_item)
+
+    return "ok"
+
+@app.route("/inputer/color", methods=["POST"])
+def inputer_product_color():
+    fproductID = request.form['fproductID']
+    fproductColorName = request.form['fproductColorName']
+    fproductColorHex = request.form['fproductColorHex']
+    
+    db_item = ProductColorModels(
+        productID=fproductID,
+        productColorName=fproductColorName,
+        productColorHex=fproductColorHex,
+    )
+    db.session.add(db_item)
+    db.session.commit()
+    db.session.refresh(db_item)
+
+    return "ok"
+
+@app.route("/inputer/size", methods=["POST"])
+def inputer_product_size():
+    fproductID = request.form['fproductID']
+    fproductSize = request.form['fproductSize']
+    fproductSizePrice = request.form['fproductSizePrice']
+
+    for ps in fproductSize.split(","):
+    
+        db_item = ProductSizeModels(
+            productID=fproductID,
+            productSize=ps,
+            productSizePrice=fproductSizePrice,
+        )
+        db.session.add(db_item)
+    db.session.commit()
+    db.session.refresh(db_item)
+
+    return "ok"
+
+
+
+@app.route("/inputer/test")
+def inputer_product_test():
+    products = ProductModels.query.all()
+    for p in products:
+        for c in p.colors:
+            print(c.productColorHex)
+            print(c.productColorName)
+
+
+    return "ok"
 
 # @app.route("/dashboard/add-product", methods=["POST"])
 # def admin_dashboard_add_product():
