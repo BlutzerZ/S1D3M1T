@@ -98,12 +98,13 @@ def inputer_product_color():
     fproductColorName = request.form['fproductColorName']
     fproductColorHex = request.form['fproductColorHex']
     
-    db_item = ProductColorModels(
-        productID=fproductID,
-        productColorName=fproductColorName,
-        productColorHex=fproductColorHex,
-    )
-    db.session.add(db_item)
+    for pc in fproductID.split(","):
+        db_item = ProductColorModels(
+            productID=pc,
+            productColorName=fproductColorName,
+            productColorHex=fproductColorHex,
+        )
+        db.session.add(db_item)
     db.session.commit()
     db.session.refresh(db_item)
 

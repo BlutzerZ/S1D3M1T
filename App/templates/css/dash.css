@@ -1,0 +1,79 @@
+/* CSS untuk menyesuaikan tampilan carousel */
+.carousel {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  /* CSS untuk menyesuaikan tampilan slide */
+  .carousel-item {
+    text-align: center;
+  }
+  
+  .carousel-caption {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .carousel-caption p {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 0;
+  }
+
+  .modal {
+    z-index: 999;
+  }
+
+  .modal-overlay {
+    z-index: 1;
+  }
+
+  .modal-container {
+    z-index: 2;
+  }
+
+  .modal-close {
+    z-index: 3;
+  }
+
+  @media screen and (max-width: 640px) {
+    .modal-content {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    /* CSS untuk layar yang lebih besar */
+    .carousel-item {
+      display: flex;
+      align-items: center;
+    }
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      text-align: left;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 5px;
+      width: 50%;
+    }
+    .carousel-caption h3 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .carousel-caption p {
+      font-size: 24px;
+      margin-bottom: 0;
+    }
+  }
+  
