@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn Tailwind CSS</title>
+  <title>SIDEMIT</title>
+  <link rel="shortcut icon" href="{{ url_for('static',filename='assets/logos/logo2.jpeg') }}" type="image/x-icon">
+
   <link href="css/dash.css">
   <link rel="stylesheet" href="{{ url_for('static',filename='css/dash.css') }}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -25,13 +27,13 @@
     <div class="container mx-auto p-5">
       <div class="md:flex md:flex-row md:justify-between text-center text-sm sm:text-base">
         <div class="flex flex-row justify-center">
-          <img src="./assets/logos/logo2.jpeg" class="w-20 h-20 rounded-lg">
+          <img src="{{ url_for('static',filename='assets/logos/logo2.jpeg') }}" class="w-20 h-20 rounded-lg">
         </div>
         <div class="mt-2">
-          <a href="./dash.html" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Home</a>
+          <a href="/" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Home</a>
           <a href="#koleksiProduks" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Shop</a>
-          <a href="./contact.html" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Contact</a>
-          <a href="./keranjang.html" class="bg-gray-200 text-gray-50 p-3 px-3 sm:px-5 rounded-full">
+          <a href="/contact" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Contact</a>
+          <a href="/keranjang" class="bg-gray-200 text-gray-50 p-3 px-3 sm:px-5 rounded-full">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
@@ -59,27 +61,15 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
               <div class="carousel-item text-center active">
-                <img src="./assets/carousel/OnPaste.20230510-202737.png" alt="Slide 1">
-                <div class="carousel-caption">
-                  <h3>Slide 1</h3>
-                  <p>Deskripsi slide 1</p>
-                </div>
+                <img src="{{ url_for('static',filename='assets/carousel/xcxcx.jpeg') }}" alt="Slide 1">
               </div>
           
               <div class="carousel-item">
-                <img src="./assets/carousel/OnPaste.20230510-203341.png" alt="Slide 2">
-                <div class="carousel-caption">
-                  <h3>Slide 2</h3>
-                  <p>Deskripsi slide 2</p>
-                </div>
+                <img src="{{ url_for('static',filename='assets/carousel/OnPaste.20230510-203341.png') }}" alt="Slide 2">
               </div>
           
               <div class="carousel-item">
-                <img src="./assets/carousel/OnPaste.20230510-204438.png" alt="Slide 3">
-                <div class="carousel-caption">
-                  <h3>Slide 3</h3>
-                  <p>Deskripsi slide 3</p>
-                </div>
+                <img src="{{ url_for('static',filename='assets/carousel/OnPaste.20230510-204438.png') }}" alt="Slide 3">
               </div>
             </div>
           
@@ -122,10 +112,9 @@
       </div>
     <div class="grid grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10" id="koleksiProduks">
       {% for p in products %}
-      
         <div data-my-data="{{ p.id }}" class="shadow-lg rounded-lg" id="{{ p.category }}Out">
           <a href="#">
-            <img src="{{ url_for('static',filename='assets/') }}" class="rounded-tl-lg rounded-tr-lg"  />
+            <img src="{{ url_for('static',filename='assets/product-image/'+p.image) }}" class="rounded-tl-lg rounded-tr-lg"  />
           </a>
           <div class="p-5">
             <h3><a href="#">{{ p.title }}</a></h3>
@@ -136,7 +125,6 @@
                   <path fill-rule="evenodd" d="M11.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 111.414 1.414L6.414 9H18a1 1 0 110 2H6.414l5.293 5.293a1 1 0 010 1.414z" clip-rule="evenodd" />
                 </svg>
               </button>
-              {% set firstIndex = 0 %}
               {% for idx, color in _enumerate(p.colors) %}
                 {% if idx == 0 %}
                   <div class="color-group-{{ p.id }} flex flex-row items-center">
@@ -144,7 +132,7 @@
                   <div class="color-group-{{ p.id }} hidden flex flex-row items-center">
                 {% endif %}
 
-                  <div title={{color.productColorName}} class="color-circle rounded-full h-5 w-5 shadow-md" style="background-color: {{ color.productColorHex }};"></div>
+                  <div title={{color.productColorName}} onclick="selectColorx('{{ p.id }}','{{ color.productColorName }}')" class="color-circle rounded-full h-5 w-5 shadow-md" style="background-color: {{ color.productColorHex }};"></div>
                 
                 {% if (idx+1) % 5 == 0 or idx+1 == p.colors|length%}
                   </div>
@@ -159,18 +147,30 @@
             
             <div class="flex flex-row my-3">
               {% for size in p.sizes %}
-                <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#">{{ size.productSize }}</a>
+                <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" onclick="selectSizex('{{ p.id }}','{{ size.productSizePrice }}','{{ size.productSize }}')">{{ size.productSize }}</a>
               {% endfor %}
             </div>
             
+            <div class="flex flex-row my-3" id="productPrice-{{ p.id }}">
+              Rp. {{ p.sizes[0].productSizePrice }}
+            </div>
             
             <div class="flex flex-col sm:flex-row gap-2 justify-between">
-              <a class="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center" href="#">
+            <form action="/add-to-cart" method="POST">
+              <input type="hidden" value="{{ p.id }}" name="fid">
+              <input id="fimg-{{ p.id }}" type="hidden" value="{{ p.image }}" name="fimg">
+              <input id="ftitle-{{ p.id }}" type="hidden" value="{{ p.title }}" name="ftitle">
+              <input id="fsize-{{ p.id }}" type="hidden" value="{{ p.sizes[0].productSize }}" name="fsize">
+              <input id="fwarna-{{ p.id }}" type="hidden" value="{{ p.colors[0].productColorName }}" name="fwarna">
+              <input id="fharga-{{ p.id }}" type="hidden" value="{{ p.sizes[0].productSizePrice }}" name="fharga">
+              <input id="fjumlah-{{ p.id }}" type="hidden" value="1" name="fjumlah">
+              <button class="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-2 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
                 Add to cart
-              </a>
+              </button>
+            </form>
               <button type="button" id="btn-showbutton" class="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center" onclick="openModal('{{ p.id }}')">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -225,12 +225,11 @@
           <span class="text-sm" >(Esc)</span>
         </div>
 
-        <!-- Konten modal -->
         <div class="modal-content py-4 text-left px-6 overflow-y-auto" style="max-height: 90vh;">
           <h1 class="text-2xl font-bold mb-2">Produk Detail</h1>
           <div class="mb-4">
             <label class="block text-gray-700 font-bold " for="judul">
-              {{ p.title }}
+              Nama Produk
             </label>
             <h1 id="pop-nama-produk"></h1>
           </div>
@@ -239,7 +238,7 @@
               Gambar
             </label>
             <img id="dataImg" class="rounded-tl-lg" style="width: 50%; height: 50%;">
-
+  
             
           </div>
           <div class="mb-4">
@@ -247,11 +246,11 @@
               Size
             </label>
             <div class="flex flex-row my-3">
-              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#" onclick="updatePrice('XL')">XL</button>
-              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#" onclick="updatePrice('XXL')">XXL</button>
-              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#" onclick="updatePrice('L')">L</button>
-              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#" onclick="updatePrice('M')">M</button>
-              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#" onclick="updatePrice('S')">S</button>
+              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" onclick="selectSize(event)">XL</button>
+              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" onclick="selectSize(event)"">XXL</button>
+              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" onclick="selectSize(event)">L</button>
+              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" onclick="selectSize(event)">M</button>
+              <button class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" onclick="selectSize(event)">S</button>
             </div>
           </div>
           <div class="mb-4">
@@ -259,27 +258,31 @@
               Choose Color
             </label>
             <div class="flex flex-row my-3">
-              <div id="hitam" class="bg-black rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer" onclick="updateColor('#hitam')"></div>
-              <div id="blue" class="bg-blue-800 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer" onclick="updateColor('#blue')"></div>
-              <div id="putih" class="bg-white rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
-              <div id="merah"class="bg-red-800 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
-              <div id="hijau" class="bg-green-700 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
-              <div id="abuAbu" class="bg-gray-400 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
-              <div id="lemon" class="bg-yellow-500 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
-              <div id="hitamSemu" class="bg-black-800 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
-              <div id="cyan" class="bg-cyan-300 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
-              <div id="amber" class="bg-amber-950 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
-              <div id="fuschia" class="bg-pink-500 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
-              <div id="matcha" class="bg-emerald-500 rounded-full h-5 w-5 shadow-md mr-2 cursor-pointer"></div>
-              
-            
+              <button id="prev-color" class="rounded-full py-1 px-2 text-white bg-gray-700 mr-2" onclick="prevBut('{{ p.id }}')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M11.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 111.414 1.414L6.414 9H18a1 1 0 110 2H6.414l5.293 5.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              {% for idx, color in _enumerate(p.colors) %}
+                {% if idx == 0 %}
+                  <div class="color-group-{{ p.id }} flex flex-row items-center">
+                {% elif idx % 5 == 0 %} 
+                  <div class="color-group-{{ p.id }} hidden flex flex-row items-center">
+                {% endif %}
+
+                  <div title={{color.productColorName}} class="color-circle rounded-full h-5 w-5 shadow-md" style="background-color: {{ color.productColorHex }};"></div>
+                
+                {% if (idx+1) % 5 == 0 or idx+1 == p.colors|length%}
+                  </div>
+                {% endif %}      
+              {% endfor %}
+              <button id="next-color" class="rounded-full py-1 px-2 text-white bg-gray-700 ml-2" onclick="nextBut('{{ p.id }}')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M8.293 16.707a1 1 0 001.414 0l6-6a1 1 0 000-1.414l-6-6a1 1 0 10-1.414 1.414L13.586 9H2a1 1 0 000 2h11.586l-5.293 5.293a1 1 0 000 1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+             
             </div>
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold " for="deskripsi-mod">
-              Description
-            </label>
-            ini desc
           </div>
           <div class="mb-4">
             <label class="block text-gray-700 font-bold " for="jumlah-mod">
@@ -305,6 +308,14 @@
             >
             Beli
             </button>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold" for="deskripsi-mod">
+              Description
+            </label>
+            <div id="proTab"></div>
+            
+            
           </div>
         
         </div>
@@ -396,6 +407,24 @@ const allSizes = document.querySelectorAll('.flex-row a');
 allSizes.forEach(size => {
   size.addEventListener('click', selectSize);
 });
+
+
+function selectSizex(productID, price, size){
+  fharga = document.getElementById("fharga-"+productID);
+  fharga.value = price;
+  fsize = document.getElementById("fsize-"+productID);
+  fsize.value = size;
+  pprice = document.getElementById("productPrice-"+productID);
+  pprice.innerHTML = 'Rp. '+price;
+}
+
+function selectColorx(productID, colorName){
+  fharga = document.getElementById("fwarna-"+productID);
+  fharga.value = colorName;
+}
+
+
+
   </script>
 </body>
 </html>

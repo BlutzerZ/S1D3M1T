@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Page</title>
+  <!-- Load Tailwind CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto py-8">
+    <h1 class="text-2xl font-bold mb-4">Checkout</h1>
+    <form action="/checkout/success" method="POST" class="bg-white p-6 rounded-lg shadow-md">
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="name">Name</label>
+        <input class="w-full border border-gray-400 p-2 rounded-md" type="text" name="fname" id="name" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="address">Address</label>
+        <textarea class="w-full border border-gray-400 p-2 rounded-md" name="faddress" id="address" required></textarea>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="phone">Phone</label>
+        <input class="w-full border border-gray-400 p-2 rounded-md" type="tel" name="fphone" id="phone" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="total">Total Price</label>
+        <span id="totalPrice">{{ total }}</span>
+        <input value="{{ total }}" class="w-full border border-gray-400 p-2 rounded-md" type="hidden" name="ftotal" id="total" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2">Shipping Method</label>
+        <div class="flex items-center">
+          <input type="radio" name="shipping_method" id="shipping_method_1" value="COD" class="mr-2">
+          <label for="shipping_method_1">Cash on Delivery (COD)</label>
+        </div>
+        <div class="flex items-center mt-2">
+          <input type="radio" name="shipping_method" id="shipping_method_2" value="shipping" class="mr-2">
+          <label for="shipping_method_2">Cash on Delivery (COD)</label>
+        </div>
+      </div>
+      <div class="mt-8">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit Order</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

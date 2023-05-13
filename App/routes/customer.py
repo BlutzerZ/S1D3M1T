@@ -31,6 +31,7 @@ def cart():
 def add_to_cart():
     cart = session.get('keranjang', [])
     cart.append({
+        "id": request.form['fid'],
         "img": request.form['fimg'],
         "title": request.form['ftitle'],
         "warna": request.form['fwarna'], # add me
@@ -41,8 +42,8 @@ def add_to_cart():
     })
     session['keranjang'] = cart
     print(session['keranjang'])
-    return "success"
-    # return redirect(url_for('show_all_product'))
+    # return "success"
+    return redirect(url_for('show_all_product'))
 
 @app.route("/delete-cart-all/")
 def delete_cart_all():
@@ -68,7 +69,8 @@ def delete_cart(item_id):
 def checkout():
     if request.method == "POST":
         total = int(request.form['ftotal'])
-        return "rerere"
+        return render_template('co.html', total=total)
+
     else:
         return "<p>Nothing here</p>"
 
