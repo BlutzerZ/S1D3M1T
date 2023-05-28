@@ -7,8 +7,10 @@ from datetime import datetime
 from werkzeug.utils import secure_filename
 
 @app.before_request
+#sebelum pengguna perangkat respon maka sistem akan
 def before_request():
     session.setdefault('user', None)
+    #session adalah ruang diisi oleh sistem mengenai ('user, none)
     session.setdefault('hpp', 0)
 
 
@@ -20,7 +22,7 @@ def show_all_product():
 
     return render_template('product.html', products=products)
 
-# CART ROUTES ====================================
+# CART ROUTES ========
 
 @app.route("/keranjang")
 def cart():

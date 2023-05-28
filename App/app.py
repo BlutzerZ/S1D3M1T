@@ -22,5 +22,8 @@ migrate = Migrate(app, db)
 app.secret_key = os.getenv('SECRET_KEY')
 app.config['UPLOAD_FOLDER'] = '/image'
 
-from routes.customer import *
+from routes.customer import * #import * = semuanya yang ada di souters.customer diimpoert ke app.py
+#routes.customer artinya jalur customer ------ semuanya diimport
 from routes.dashboard import *
+
+#Ini adalah route, route digunakan untuk mengedit isi tampilan web di bagian dashbord
