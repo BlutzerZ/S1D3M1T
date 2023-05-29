@@ -1,5 +1,5 @@
 from app import app, db
-from models import Product as ProductModels, ProductColor as ProductColorModels, ProductSize as ProductSizeModels, Transaction as OrderModels, TransactionItem as OrderItemModels
+from models import Product as ProductModels, ProductColor as ProductColorModels, ProductSize as ProductSizeModels, ProductStock as ProductStockModels, Transaction as OrderModels, TransactionItem as OrderItemModels
 from flask import render_template, request, session, redirect, abort, url_for, render_template
 import time, os, random
 from pytz import timezone
@@ -60,7 +60,8 @@ def dashboard_product():
     #sama
         return redirect(url_for('admin_login_form'))
     #sama
-    return  render_template('dashboardproduct.html')
+    products = ProductModels.query.all()
+    return  render_template('dashboardproduct.html', products=products)
 #sama
 
 @app.route("/dashboard/hpp")

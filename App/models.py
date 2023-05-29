@@ -21,7 +21,8 @@ class Product(db.Model):
     category = db.Column(db.String(100))
     sizes = db.relationship('ProductSize', backref='transaction')
     colors = db.relationship('ProductColor', backref='transaction')
-    stock = db.relationship('ProductStock', backref='transaction')
+    stock = db.relationship('ProductStock', uselist=False, backref='product', cascade='all, delete-orphan')
+
     #Relationship untuk menghubungkan agar tampilan produk pada web sidemit ada visual colornya
 
 class ProductSize(db.Model):

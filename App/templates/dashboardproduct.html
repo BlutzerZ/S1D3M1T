@@ -93,112 +93,35 @@
           <tr>
             <th></th>
             <th>Product</th>
-            <th>Jenis Kain</th>
             <th>Ukuran</th>
             <th>Warna</th>
+            <th>Stock</th>
           </tr>
           </thead>
           <tbody>
+          {% for product in products %}
           <tr>
             <td class="image-cell">
               <div class="image">
                 <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
               </div>
             </td>
-            <td data-label="Name">Kemeja Lengan Panjang</td>
-            <td data-label="JenisKain">Katun Toyobo, Katun Silk Sutra, Linen, Rayon</td>
-            <td data-label="Size">S, M, L, XL, XXL</td>
-            <td data-label="Color">Hitam, White, Dusty Pink, Brown, Olive, SkyBlue, Maroon, Beige, Navy, Fuschia, Azzure, Khaki, Butter, Flamingo, LightGray, Coffe, Nude, Turqoise, Pink, Army</td>
-          </tr>
-          <tr>
-            <td class="image-cell">
-              <div class="image">
-                <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
-              </div>
+            <td data-label="Name">{{ product.title }}</td>
+            <td data-label="Size">
+              {% for size in product.sizes %}
+                {{ size.productSize }} ,
+              {% endfor %}
             </td>
-            <td data-label="Name">Kemeja Lengan Pendek</td>
-            <td data-label="JenisKain">Katun Toyobo, Katun Silk Sutra, Linen, Rayon</td>
-            <td data-label="Size">S, M, L, XL, XXL</td>
-            <td data-label="Color">Hitam, White, Dusty Pink, Brown, Olive, SkyBlue, Maroon, Beige, Navy, Fuschia, Azzure, Khaki, Butter, Flamingo, LightGray, Coffe, Nude, Turqoise, Pink, Army</td>
-          </tr>
-          <tr>
-            <td class="image-cell">
-              <div class="image">
-                <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
-              </div>
+            <td data-label="Color">
+              {% for color in product.colors %}
+                {{ color.productColorName }} ,
+              {% endfor %}
             </td>
-            <td data-label="Name">Blouse</td>
-            <td data-label="JenisKain">Rayon, Linen, Moscrepe, Silk Sutra, Crinkle</td>
-            <td data-label="Size">S, M, L, XL, XXL</td>
-            <td data-label="Color">Toupe, Browny, Lemon, Sage, Bata, Black, White</td>
-          </tr>
-          <tr>
-            <td class="image-cell">
-              <div class="image">
-                <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
-              </div>
+            <td data-label="Stock">
+              {{ product.stock.productTotalStock }}
             </td>
-            <td data-label="Name">Dress Panjang</td>
-            <td data-label="JenisKain">Crepe, Ceruti, Silk Satin, Scuba</td>
-            <td data-label="Size">XS, S, M, L, Xl, XXL</td>
-            <td data-label="Color">Black, Maroon, Army, Lavender, Mustard, DustyPink, Lemon, Navy, Milo, Pink, BrownCoco, Green, Lilac, Silver</td>
           </tr>
-          <tr>
-            <td class="image-cell">
-              <div class="image">
-                <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
-              </div>
-            </td>
-            <td data-label="Name">Dress Pendek</td>
-            <td data-label="JenisKain">Katun Toyobo, Katun Silk Sutra, Linen, Rayon</td>
-            <td data-label="Size">XS, M, L, XL, XXL</td>
-            <td data-label="Color">Black, Maroon, Army, Lavender, Mustard, DustyPink, Lemon, Navy, Milo, Pink, BrownCoco, Green, Lilac, Silver</td>
-          </tr>
-          <tr>
-            <td class="image-cell">
-              <div class="image">
-                <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
-              </div>
-            </td>
-            <td data-label="Name">One Set Panjang</td>
-            <td data-label="JenisKain">Rayon, Crinkel, Linen</td>
-            <td data-label="Size">S, M, L, XL, XXL</td>
-            <td data-label="Color">Taupe, Browny, Lemon, Sage, Bata, Black, Denim, Navy</td>
-          </tr>
-          <tr>
-            <td class="image-cell">
-              <div class="image">
-                <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
-              </div>
-            </td>
-            <td data-label="Name">One Set Pendek</td>
-            <td data-label="JenisKain">Rayon, Crinkle, Linen</td>
-            <td data-label="Size">27, 28, 29, 30, 31, 32</td>
-            <td data-label="Color">Taupe, Browny, Lemon, Sage, Bata, Black, Denim, Navy</td>
-          </tr>
-          <tr>
-            <td class="image-cell">
-              <div class="image">
-                <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
-              </div>
-            </td>
-            <td data-label="Name">Celana Panjang</td>
-            <td data-label="JenisKain">Drill, Polyster, Rib Knit, Rayon, Crinkle</td>
-            <td data-label="Size">27, 28, 29, 30, 31, 32</td>
-            <td data-label="Color">Black, BrokenWhite, Army, Matcha, Cream, Grey, MoccaLatte, TeraCotta, Mauve, Fuchsia, Rosewood, Green, Emerald, ElectrucBlue, Choco, Dusty, DustyPink</td>
-          </tr>
-          <tr>
-            <td class="image-cell">
-              <div class="image">
-                <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="rounded-full">
-              </div>
-            </td>
-            <td data-label="Name">Celana Pendek</td>
-            <td data-label="JenisKain">Drill, Polyster, Rib Knit, Rayon, Crinkle</td>
-            <td data-label="Size">S, M, L, XL, XXL</td>
-            <td data-label="Color">Black, BrokenWhite, Army, Matcha, Cream, Grey, MoccaLatte, TeraCotta, Mauve, Fuchsia, Rosewood, Green, Emerald, ElectrucBlue, Choco, Dusty, DustyPink</td>
-          </tr>
-          
+          {% endfor %}
           </tbody>
         </table>
       </div>
