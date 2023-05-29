@@ -111,6 +111,11 @@ def checkout_success():
             )
 
             db.session.add(db_item)
+
+            pStock = ProductStockModels.query.filter_by(productID=cart['id']).first()
+            pStock.productTotalStock = int(pStock.productTotalStock) - int(cart['jumlah'])
+            print(f"delete id {cart['id']} mined {cart['jumlah']}")
+        
         db.session.commit()
         db.session.refresh(db_item)
 
