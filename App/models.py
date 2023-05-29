@@ -21,6 +21,7 @@ class Product(db.Model):
     category = db.Column(db.String(100))
     sizes = db.relationship('ProductSize', backref='transaction')
     colors = db.relationship('ProductColor', backref='transaction')
+    stock = db.relationship('ProductStock', backref='transaction')
     #Relationship untuk menghubungkan agar tampilan produk pada web sidemit ada visual colornya
 
 class ProductSize(db.Model):
@@ -40,6 +41,12 @@ class ProductColor(db.Model):
     #variabel hex dapat karena salin warna melalui canva dan memang namanya "ProductColorHex"
     #jadi otomatis terinput dan tidak kami ganti 
     productColorName = db.Column(db.String(50))
+    productID = db.Column(db.Integer, db.ForeignKey('product.id'), nullable=False)
+
+
+class ProductStock(db.Model):
+    id = db.Column(db.Integer, primary_key=True, index=True)
+    productTotalStock = db.Column(db.String(50))
     productID = db.Column(db.Integer, db.ForeignKey('product.id'), nullable=False)
 
 class Transaction(db.Model):
